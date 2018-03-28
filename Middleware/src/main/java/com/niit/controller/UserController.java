@@ -61,7 +61,7 @@ private UserDao userDao;
 		String email=(String)session.getAttribute("currentuser");
 		System.out.println(email);
 		if(email==null){
-			ErrorClazz error=new ErrorClazz(4,"Please login..");
+			ErrorClazz error=new ErrorClazz(8,"Please login..");
 			return new ResponseEntity<ErrorClazz>(error,HttpStatus.UNAUTHORIZED);
 		}
 		User user=userDao.getUser(email);
@@ -75,7 +75,7 @@ private UserDao userDao;
 	public ResponseEntity<?>getUser(HttpSession session){
 		String email=(String)session.getAttribute("currentuser");
 		if(email==null){
-			ErrorClazz error=new ErrorClazz(5,"Unauthorised access...");
+			ErrorClazz error=new ErrorClazz(8,"Unauthorised access...");
 			return new ResponseEntity<ErrorClazz>(error,HttpStatus.UNAUTHORIZED);
 		}
 		User user=userDao.getUser(email);
